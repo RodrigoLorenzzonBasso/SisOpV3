@@ -1,0 +1,21 @@
+LDI $0,1	//primeiro e segundo numero da sequencia = 1
+STD 80,$0	// 80 e 81 sao as primeiras posiçoes de memoria
+STD 81,$0
+LDI $2,80	
+LDI $3,81
+LDI $4,8	//contador de numeros da sequencia, como ja foi colocado dois 1
+		//o contador inicia em 10 - 2 = 8
+LDI $5,6	//posição para o jump
+
+//Loop//	//começa o loop para calcular e guardar os proximos digitos do fibonacci
+LDX $0,$2
+LDX $1,$3
+ADD $0,$1
+ADDI $2,1
+ADDI $3,1
+STX $3,$0
+SUBI $4,1
+JMPIG $5,$4
+////////
+
+STOP

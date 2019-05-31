@@ -1,0 +1,17 @@
+LDI $1,5
+ADD $3,$1
+SUBI $3,2
+LDI $4,8
+ADD $2,$1
+SUBI $2,1
+MULT $1,$2
+LDI $0,0
+ADD $0,$1
+LDI $1,0
+ADD $1,$2
+SUBI $2,1
+MULT $0,$2
+SUBI $3,1
+JMPIG $4,$3
+STD 80,$0
+STOP

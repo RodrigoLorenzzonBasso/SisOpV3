@@ -1,0 +1,53 @@
+//preparando vetor
+LDI $0,5
+STD 80,$0
+LDI $0,4
+STD 81,$0
+LDI $0,3
+STD 82,$0
+LDI $0,2
+STD 83,$0
+LDI $0,1
+STD 84,$0
+/////////////////
+
+LDI $0,5	// contadores
+LDI $1,4	//
+
+LDI $2,80	//ponteiros para as posiçoes iniciais do vetor
+LDI $3,81	//
+
+
+//loop2//
+//loop1//
+LDX $4,$2	//loada os primeiros 2 valores do vetor
+LDX $5,$3
+LDX $6,$3	//coloca em uma posição a mais para lógica seguinte
+
+SUB $6,$4	//diminuimos o $4, do $5 e caso o valor restante seja negativo
+		//significa que o numero da esquerda é maior, entao fazemos swap
+LDI $7,31	//carrega endereço 31(swap)
+JMPIL $7,$6	//jump se $6 é < 0 (valor da esquerda é maior q o da direita)
+
+SUBI $1,1	//manutenção dos contadores e endereços
+ADDI $2,1	
+ADDI $3,1
+LDI $7,13	//endereço para jump loop1
+JMPIG $7,$1	//jump se $1 > 0
+//loop1//
+
+LDI $2,80	//voltamos para o inicio do vetor para continuar o loop1
+LDI $3,81
+SUBI $0,1	//manutenção dos contadores
+LDI $1,4	//VALOR Q DEVE SER ADICIONADO AO CONTADOR DO LOOP 1
+LDI $7,13	//endereço para jump loop2
+JMPIG $7,$0	//jump se $0 > 0
+//loop2//
+
+STOP
+
+//swap//
+STX $2,$5
+STX $3,$4
+JMP 19		//jump de volta para o loop
+////////

@@ -1,0 +1,22 @@
+LDI $1,4	//numero q será calculado o fatorial
+//	//	//logica para fazer a primeira multiplicação
+ADD $3,$1	//e preparar os valores nos registradores $0,$1,$2
+SUBI $3,2
+LDI $4,8	//valor a ser usado pelo jump para salto
+ADD $2,$1
+SUBI $2,1
+MULT $1,$2
+LDI $0,0
+ADD $0,$1
+
+//Loop//	//a logica para o laço é: coloca o valor do $2 em $1 para salvar o valor
+LDI $1,0	//diminui o valor do $2 em 1
+ADD $1,$2	//multiplica $2 ao valor da multiplicação anterior guardada em $0
+SUBI $2,1	//Diminui o contador($3)
+MULT $0,$2	//enquanto $3 > 0 faz novamente
+SUBI $3,1
+JMPIG $4,$3
+////////
+
+STD 80,$0	//guarda a saida na posição 80
+STOP
