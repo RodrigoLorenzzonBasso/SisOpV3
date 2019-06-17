@@ -24,7 +24,7 @@ public:
 	void carga(Program * p, int indexParticao);
 	int alocarParticao(int n);
 	int desalocarParticao(int particao, ProcessControlBlock * pcb);
-	int translate(int endLogico, int index);
+	int translate(int endLogico, ProcessControlBlock * pcb);
 
 	unsigned int * memoria = nullptr;
 

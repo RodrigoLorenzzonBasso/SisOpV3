@@ -29,7 +29,7 @@ void CPU::incPc()
 	st->incPc();
 }
 
-int CPU::execInst(int *interruptParam)
+int CPU::execInst(int *interruptParam, ProcessControlBlock * pcb)
 {
 	MicroInstruction* temp = fetch();
 	int * pc = st->getPc();
@@ -49,7 +49,7 @@ int CPU::execInst(int *interruptParam)
 		return -1;
 	}
 
-	ex->execute(temp, pc, st->getRegs(), &interruptFlag, interruptParam);
+	ex->execute(temp, pc, st->getRegs(), &interruptFlag, interruptParam, pcb);
 
 	incPc();
 
@@ -89,7 +89,7 @@ void CPU::THREAD_CPU(ProcessControl * processManager, bool * debug, bool * stop,
 		{
 
 			//EXEC INSTRUCTION
-			int i = execInst(&interruptParam); //retorna 0 por padrao
+			int i = execInst(&interruptParam, processManager->getPcbRodando()); //retorna 0 por padrao
 			////////////////
 
 			//Read Trap

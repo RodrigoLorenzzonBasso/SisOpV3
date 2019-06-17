@@ -6,7 +6,7 @@ Execution::Execution(unsigned int * memoria, MemControl * gerente)
 	this->gerente = gerente;
 }
 
-void Execution::execute(MicroInstruction * inst, int* pc, int* regs, int* interruptFlag, int *interruptParameter)
+void Execution::execute(MicroInstruction * inst, int* pc, int* regs, int* interruptFlag, int *interruptParameter, ProcessControlBlock * pcb)
 {
 
 	if (inst->getInst() == "JMP")
@@ -51,12 +51,12 @@ void Execution::execute(MicroInstruction * inst, int* pc, int* regs, int* interr
 		regs[inst->getR1()] = inst->getImm();
 	else if (inst->getInst() == "LDD")
 	{
-		int endFis = gerente->translate(inst->getImm(), inst->getIndex());
+		int endFis = gerente->translate(inst->getImm(), pcb);
 		regs[inst->getR1()] = memoria[endFis];
 	}
 	else if (inst->getInst() == "STD")
 	{
-		int endFis = gerente->translate(inst->getImm(), inst->getIndex());
+		int endFis = gerente->translate(inst->getImm(), pcb);
 		memoria[endFis] = regs[inst->getR1()];
 	}
     else if(inst->getInst() == "ADD")
@@ -71,13 +71,13 @@ void Execution::execute(MicroInstruction * inst, int* pc, int* regs, int* interr
         regs[inst->getR1()] |= regs[inst->getR2()];
 	else if (inst->getInst() == "LDX")
 	{
-		int endFis = gerente->translate(regs[inst->getR2()], inst->getIndex());
+		int endFis = gerente->translate(regs[inst->getR2()], pcb);
 		regs[inst->getR1()] = memoria[endFis];
 	}
         
 	else if (inst->getInst() == "STX")
 	{
-		int endFis = gerente->translate(regs[inst->getR1()], inst->getIndex());
+		int endFis = gerente->translate(regs[inst->getR1()], pcb);
 		memoria[endFis] = regs[inst->getR2()];
 	}
         
@@ -102,14 +102,13 @@ void Execution::execute(MicroInstruction * inst, int* pc, int* regs, int* interr
 		if (regs[inst->getR1()] == 1)
 		{
 			*interruptFlag = 1;
-			int endFis = gerente->translate(regs[inst->getR2()], inst->getIndex());
+			int endFis = gerente->translate(regs[inst->getR2()], pcb);
 			*interruptParameter = endFis;
 		}
 		else if (regs[inst->getR1()] == 2)
 		{
 			*interruptFlag = 2;
-			int endFis = gerente->translate(regs[inst->getR2()], inst->getIndex());
-			//cout << "End fis: " << endFis << endl;
+			int endFis = gerente->translate(regs[inst->getR2()], pcb);
 			*interruptParameter = memoria[endFis];
 		}
 	}

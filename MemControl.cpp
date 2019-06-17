@@ -77,11 +77,14 @@ int MemControl::desalocarParticao(int particao, ProcessControlBlock * pcb)
 	return -1;
 }
 
-int MemControl::translate(int endLogico, int index)
+int MemControl::translate(int endLogico, ProcessControlBlock * pcb)
 {
-	int endFisico;
-	int base = index * tamFrame;
+	int endFisico = endLogico;
+	return endFisico;
+	/*int base = index * tamFrame;
 	int limit = ((index + 1) * tamFrame) - 1;
+
+	int nPagina = endLogico/16;
 
 	endFisico = endLogico + (index * tamFrame);
 
@@ -91,6 +94,8 @@ int MemControl::translate(int endLogico, int index)
 	{
 		cout << "Enderecamento indevido" << endl;
 		return -1;
-	}
+	}*/
+
+	return -1;
 		
 }
