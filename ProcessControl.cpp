@@ -11,7 +11,7 @@ ProcessControl::ProcessControl(unsigned int* memoria, int tamPart)
 	nProcessos = 0;
 	interrupted = false;
 	timeSliceMS = 0.5;
-	this->tamPart = tamPart;
+	this->tamFrame = tamPart;
 }
 
 ProcessControl::~ProcessControl()
@@ -24,22 +24,20 @@ ProcessControl::~ProcessControl()
 
 ProcessControlBlock* ProcessControl::createProcess(Program* p)
 {
-	int indexParticao = memoryManager->alocarParticao();
+	int indexParticao = memoryManager->alocarParticao(p->nFrames);
 	if (indexParticao == -1)
 		return nullptr;
 
-	if (*debug == true)
-	{
-		cout << "Partition " << indexParticao << " allocated" << endl;
-	}
+	cout << "Frames alocados: " << indexParticao << "até " << indexParticao+p->nFrames << endl;
 
 	memoryManager->carga(p, indexParticao);
 
-	int base = indexParticao * tamPart;
-	int limit = ((indexParticao + 1) * tamPart) - 1;
+	int base = indexParticao * tamFrame;
+	//int limit = ((indexParticao + 1) * tamFrame) - 1;
+	int limit = 0;
 
 	nProcessos++;
-	ProcessControlBlock* pcb = new ProcessControlBlock(indexParticao,base,limit);
+	ProcessControlBlock* pcb = new ProcessControlBlock(indexParticao,base,limit,p->nFrames);
 	pcbList->push_back(pcb);
 
 	rdyQueue.lock();
@@ -57,7 +55,7 @@ int ProcessControl::deleteProcess(ProcessControlBlock* pcb)
 		if (*it == pcb)
 		{
 			int particao = (*it)->getParticao();
-			memoryManager->desalocarParticao(particao);
+			memoryManager->desalocarParticao(particao, pcb);
 			
 			cout << "Partition " << particao << " deallocated" << endl;
 

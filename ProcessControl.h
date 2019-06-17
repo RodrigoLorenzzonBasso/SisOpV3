@@ -53,7 +53,7 @@ class ProcessControl
 		int nProcessos;
 		bool interrupted;
 		double timeSliceMS;
-		int tamPart;
+		int tamFrame;
 		bool* debug = nullptr;
 		bool* stop = nullptr;
 };

@@ -20,7 +20,7 @@ using namespace std;
 
 //definicoes de constantes do programa
 #define TAM_MEM 1024
-#define TAM_PART 128
+#define TAM_PART 16
 //
 
 void callThreadTimer(ProcessControl* manager, bool* debug, bool* stop);

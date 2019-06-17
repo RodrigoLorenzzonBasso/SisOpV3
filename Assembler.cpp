@@ -29,6 +29,17 @@ vector<int> * Assembler::generateSource(string filename)
 
     for(vector<string>::iterator i = font->begin(); i != font->end(); i++)
     {
+        if(i == font->begin())
+        {
+            string nFrames = *i;
+            stringstream ss(nFrames);
+            int n = 0;
+            ss >> n;
+            cout << "Numero de Frames: " << n << endl;
+            o->push_back(n);
+            continue;
+        }
+
         unsigned int opcode = 0;
         unsigned int firstOpCode = 0;
         unsigned int secondOpCode = 0;

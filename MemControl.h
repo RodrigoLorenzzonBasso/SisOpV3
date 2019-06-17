@@ -12,6 +12,7 @@
 #include "Program.h"
 #include <vector>
 #include <iostream>
+#include "ProcessControlBlock.h"
 
 using namespace std;
 
@@ -21,16 +22,16 @@ public:
 	MemControl(unsigned int * memoria, int tamPart);
 	~MemControl();
 	void carga(Program * p, int indexParticao);
-	int alocarParticao();
-	int desalocarParticao(int particao);
+	int alocarParticao(int n);
+	int desalocarParticao(int particao, ProcessControlBlock * pcb);
 	int translate(int endLogico, int index);
 
 	unsigned int * memoria = nullptr;
 
 private:
 	
-	int tamPart;
-	int nPart;
+	int tamFrame;
+	int nFrames;
 	vector<bool> busy;
 
 	
