@@ -1,3 +1,6 @@
+/// Rodrigo Basso
+/// Rodrigo Perozzo
+
 #include "MemControl.h"
 
 MemControl::MemControl(unsigned int * memoria, int tamPart)
@@ -42,17 +45,18 @@ void MemControl::carga(Program* p, int indexParticao)
 
 int MemControl::alocarParticao(int n)
 {
+	int primeira;
 	for (int i = 0; i < nFrames; i++)
 	{
 		if (busy[i] == false)
 		{
-			for(int j = i; j == n-1; j++)
+			primeira = i;
+			for(int j = i; j <= i+n-1; j++)
 			{
-				cout << "Frame: " << j << "alocado" << endl;
+				//cout << "Frame: " << j << " alocado" << endl;
 				busy[j] = true;
-				return i;
 			}
-			
+			return primeira;
 			
 		}
 	}
@@ -64,9 +68,9 @@ int MemControl::desalocarParticao(int particao, ProcessControlBlock * pcb)
 {
 	if (busy[particao] == true)
 	{
-		for(int i = 0; i == pcb->nFrames-1; i++)
+		for(int i = 0; i <= pcb->nFrames-1; i++)
 		{
-			cout << "Frame: " << particao+i << "desalocado" << endl;
+			cout << "Frame: " << particao+i << " desalocado" << endl;
 			busy[particao+i] = false;
 		}
 		return 0;
@@ -80,11 +84,21 @@ int MemControl::desalocarParticao(int particao, ProcessControlBlock * pcb)
 int MemControl::translate(int endLogico, ProcessControlBlock * pcb)
 {
 	int endFisico = endLogico;
+	//return endFisico;
+
+	int nPagina = endLogico/16;
+	int offset = endLogico%16;
+
+	int nFrame = pcb->tabelaPag[nPagina];
+
+	endFisico = nFrame * 16 + offset;
+
 	return endFisico;
+
 	/*int base = index * tamFrame;
 	int limit = ((index + 1) * tamFrame) - 1;
 
-	int nPagina = endLogico/16;
+	///int nPagina = endLogico/16;
 
 	endFisico = endLogico + (index * tamFrame);
 
@@ -96,6 +110,6 @@ int MemControl::translate(int endLogico, ProcessControlBlock * pcb)
 		return -1;
 	}*/
 
-	return -1;
+	//return -1;
 		
 }

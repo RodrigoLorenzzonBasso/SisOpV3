@@ -1,3 +1,6 @@
+/// Rodrigo Basso
+/// Rodrigo Perozzo
+
 #include "MicroInstruction.h"
 #define testBit(valor,bit) (valor & (1<<bit))
 #define setBit(valor,bit) (valor |= (1<<bit))

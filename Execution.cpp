@@ -1,3 +1,6 @@
+/// Rodrigo Basso
+/// Rodrigo Perozzo
+
 #include "Execution.h"
 
 Execution::Execution(unsigned int * memoria, MemControl * gerente)

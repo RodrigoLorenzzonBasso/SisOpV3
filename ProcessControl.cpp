@@ -1,3 +1,6 @@
+/// Rodrigo Basso
+/// Rodrigo Perozzo
+
 #include "ProcessControl.h"
 
 ProcessControl::ProcessControl(unsigned int* memoria, int tamPart)
@@ -28,7 +31,7 @@ ProcessControlBlock* ProcessControl::createProcess(Program* p)
 	if (indexParticao == -1)
 		return nullptr;
 
-	cout << "Frames alocados: " << indexParticao << "até " << indexParticao+p->nFrames << endl;
+	cout << "Frames alocados: " << indexParticao << " ate " << (indexParticao+p->nFrames)-1 << endl;
 
 	memoryManager->carga(p, indexParticao);
 
@@ -57,7 +60,7 @@ int ProcessControl::deleteProcess(ProcessControlBlock* pcb)
 			int particao = (*it)->getParticao();
 			memoryManager->desalocarParticao(particao, pcb);
 			
-			cout << "Partition " << particao << " deallocated" << endl;
+			//cout << "Partition " << particao << " deallocated" << endl;
 
 			
 			pcbList->erase(it);

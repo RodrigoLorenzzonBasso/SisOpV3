@@ -6,6 +6,8 @@
 
 #ifndef PROCESS_CONTROL_BLOCK_H
 #define PROCESS_CONTROL_BLOCK_H
+/// Rodrigo Basso
+/// Rodrigo Perozzo
 
 #include "StateCpu.h"
 #include <iostream>

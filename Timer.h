@@ -1,7 +1,10 @@
-/*
-	Classe que implementa cron�metro
+/// Rodrigo Basso
+/// Rodrigo Perozzo
 
-	m�todo timeMillis() retorna tempo desde o instanciamento do objeto
+/*
+	Classe que implementa cronometro
+
+	metodo timeMillis() retorna tempo desde o instanciamento do objeto
 */
 
 #ifndef TIMER_H

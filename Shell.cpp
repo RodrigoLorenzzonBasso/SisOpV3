@@ -1,3 +1,6 @@
+/// Rodrigo Basso
+/// Rodrigo Perozzo
+
 #include "Shell.h"
 
 Shell::Shell(unsigned int * memoria)
@@ -75,18 +78,18 @@ void Shell::THREAD_SHELL(ProcessControl* processManager, bool* debug, bool* stop
 				p.prog = fontCode;
 				processManager->createProcess(&p); */
 
-				fontCode = as->generateSource("TesteRead.txt");
-				Program p(fontCode);
+				fontCode = as->generateSource("fibonacci.txt");
+				Program p0(fontCode);
 				//p.prog = fontCode;
-				processManager->createProcess(&p); 
+				processManager->createProcess(&p0); 
 
-				fontCode = as->generateSource("TesteRead.txt");
-				p.prog = fontCode;
-				processManager->createProcess(&p); 
+				fontCode = as->generateSource("fibonacci.txt");
+				Program p1(fontCode);;
+				processManager->createProcess(&p1); 
 
-				fontCode = as->generateSource("TesteRead.txt");
-				p.prog = fontCode;
-				processManager->createProcess(&p);
+				fontCode = as->generateSource("fibonacci.txt");
+				Program p2(fontCode);
+				processManager->createProcess(&p2);
 
 				cout << "all loaded" << endl;
 			}
@@ -177,7 +180,7 @@ void Shell::printMem()
 	{
 		if (i % TAM_PART == 0)
 		{
-			cout << "Partition: " << i/TAM_PART << endl;
+			cout << "Frame: " << i/TAM_PART << endl;
 		}
 
 		if (memoria[i] != 0)

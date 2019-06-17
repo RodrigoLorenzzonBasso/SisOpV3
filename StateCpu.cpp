@@ -1,3 +1,6 @@
+/// Rodrigo Basso
+/// Rodrigo Perozzo
+
 #include "StateCpu.h"
 
 StateCpu::StateCpu(int indexPart, int base, int limit)

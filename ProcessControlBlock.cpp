@@ -1,3 +1,6 @@
+/// Rodrigo Basso
+/// Rodrigo Perozzo
+
 #include "ProcessControlBlock.h"
 #include <iostream>
 
@@ -12,7 +15,7 @@ ProcessControlBlock::ProcessControlBlock(int indexPart, int base, int limit, int
 		if(i < nFrames)
 		{
 			tabelaPag[i] = indexPart + i;
-			cout << "Atualizando Tabelas: " << tabelaPag[i] << endl;
+			//cout << "Atualizando Tabelas: " << tabelaPag[i] << endl;
 		}
 		else
 		{
@@ -20,6 +23,8 @@ ProcessControlBlock::ProcessControlBlock(int indexPart, int base, int limit, int
 		}
 		
 	}
+
+	cout << "Tabela de paginas atualizada" << endl;
 
 	thisId = id;
 	id++;

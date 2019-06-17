@@ -2,9 +2,9 @@
 Nomes:  Rodrigo Basso e Rodrigo Perozzo
 Status: Completo
 
-Trabalho Parcial 2 de Sistemas Operacionais
-	Maquina Virtual com gerente de memoria, gerente de processos,
-	escalonagem de processos e execu��o paralela
+Trabalho Final de Sistemas Operacionais
+	Maquina Virtual com gerente de memoria paginada, gerente de processos,
+	escalonagem de processos e execucao paralela
 **/
 
 

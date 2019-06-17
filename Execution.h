@@ -1,3 +1,6 @@
+/// Rodrigo Basso
+/// Rodrigo Perozzo
+
 /*
 	Classe que implementa a execu��o das instru�oes
 

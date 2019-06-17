@@ -1,3 +1,6 @@
+/// Rodrigo Basso
+/// Rodrigo Perozzo
+
 #include "Assembler.h"
 
 void printBitToBit(unsigned int val)
@@ -35,7 +38,7 @@ vector<int> * Assembler::generateSource(string filename)
             stringstream ss(nFrames);
             int n = 0;
             ss >> n;
-            cout << "Numero de Frames: " << n << endl;
+            //cout << "Numero de Frames: " << n << endl;
             o->push_back(n);
             continue;
         }

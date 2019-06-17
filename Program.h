@@ -1,6 +1,9 @@
+/// Rodrigo Basso
+/// Rodrigo Perozzo
+
 /*
-	Abstra��o de dados para representa��o de um programa
-	na forma de um vetor(prog) de codigos fontes de instru�oes
+	Abstracao de dados para representacao de um programa
+	na forma de um vetor(prog) de codigos fontes de instrucoes
 */
 
 #ifndef PROGRAM_H
