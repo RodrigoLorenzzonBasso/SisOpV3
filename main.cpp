@@ -2,9 +2,9 @@
 Nomes:  Rodrigo Basso e Rodrigo Perozzo
 Status: Completo
 
-Trabalho Parcial 2 de Sistemas Operacionais
-	Maquina Virtual com gerente de memoria, gerente de processos,
-	escalonagem de processos e execu��o paralela
+Trabalho Final de Sistemas Operacionais
+	Maquina Virtual com gerente de memoria paginada, gerente de processos,
+	escalonagem de processos e execucao paralela
 **/
 
 
@@ -20,7 +20,7 @@ using namespace std;
 
 //definicoes de constantes do programa
 #define TAM_MEM 1024
-#define TAM_PART 128
+#define TAM_PART 16
 //
 
 void callThreadTimer(ProcessControl* manager, bool* debug, bool* stop);

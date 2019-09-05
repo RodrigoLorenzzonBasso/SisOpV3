@@ -1,5 +1,8 @@
+/// Rodrigo Basso
+/// Rodrigo Perozzo
+
 /*
-	Classe para guardar informa��es flutuantes da cpu
+	Classe para guardar informacoes flutuantes da cpu
 */
 
 #ifndef STATE_CPU_H

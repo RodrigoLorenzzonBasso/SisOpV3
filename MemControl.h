@@ -1,8 +1,11 @@
-/*
-	Gerente de Mem�ria
+/// Rodrigo Basso
+/// Rodrigo Perozzo
 
-	abstra��o utilizada pelo gerente de processos para gerenciar a memoria;
-	implementa os m�todos de alocar/desalocar particao e carga de um programa;
+/*
+	Gerente de Memoria
+
+	abstracao utilizada pelo gerente de processos para gerenciar a memoria;
+	implementa os metodos de alocar/desalocar paginas e frames respectivos e da carga de um programa;
 */
 
 #ifndef MEMCONTROL_H
@@ -12,6 +15,7 @@
 #include "Program.h"
 #include <vector>
 #include <iostream>
+#include "ProcessControlBlock.h"
 
 using namespace std;
 
@@ -21,16 +25,16 @@ public:
 	MemControl(unsigned int * memoria, int tamPart);
 	~MemControl();
 	void carga(Program * p, int indexParticao);
-	int alocarParticao();
-	int desalocarParticao(int particao);
-	int translate(int endLogico, int index);
+	int alocarParticao(int n);
+	int desalocarParticao(int particao, ProcessControlBlock * pcb);
+	int translate(int endLogico, ProcessControlBlock * pcb);
 
 	unsigned int * memoria = nullptr;
 
 private:
 	
-	int tamPart;
-	int nPart;
+	int tamFrame;
+	int nFrames;
 	vector<bool> busy;
 
 	

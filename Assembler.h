@@ -1,7 +1,10 @@
-/*
-	Classe montadora de código objeto
+/// Rodrigo Basso
+/// Rodrigo Perozzo
 
-	lê arquivo .txt com instruções e retorna código objeto em forma de vector<int>;
+/*
+	Classe montadora de cï¿½digo objeto
+
+	lï¿½ arquivo .txt com instruï¿½ï¿½es e retorna cï¿½digo objeto em forma de vector<int>;
 */
 
 #ifndef ASSEMBLER_H

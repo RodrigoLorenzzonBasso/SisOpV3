@@ -1,8 +1,11 @@
-/*
-	Classe que implementa a execução das instruçoes
+/// Rodrigo Basso
+/// Rodrigo Perozzo
 
-	apenas 1 método importante, execute, que, recebe uma microinstruçao
-	e executa a operação contida nela;
+/*
+	Classe que implementa a execuï¿½ï¿½o das instruï¿½oes
+
+	apenas 1 mï¿½todo importante, execute, que, recebe uma microinstruï¿½ao
+	e executa a operaï¿½ï¿½o contida nela;
 */
 
 #ifndef EXECUTION_H
@@ -11,6 +14,7 @@
 #include "MicroInstruction.h"
 #include <iostream>
 #include "MemControl.h"
+#include "ProcessControlBlock.h"
 
 using namespace std;
 
@@ -19,7 +23,7 @@ class Execution
 {
     public:
         Execution(unsigned int * memoria, MemControl * gerente);
-        void execute(MicroInstruction * inst, int * pc, int * regs, int *interruptFlag, int *interruptParameter);
+        void execute(MicroInstruction * inst, int * pc, int * regs, int *interruptFlag, int *interruptParameter, ProcessControlBlock * pcb);
 
     private:
         unsigned int * memoria = nullptr;

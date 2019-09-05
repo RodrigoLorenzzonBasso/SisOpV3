@@ -1,10 +1,30 @@
+/// Rodrigo Basso
+/// Rodrigo Perozzo
+
 #include "ProcessControlBlock.h"
 #include <iostream>
 
-ProcessControlBlock::ProcessControlBlock(int indexPart, int base, int limit)
+ProcessControlBlock::ProcessControlBlock(int indexPart, int base, int limit, int nFrames)
 {
 	st = new StateCpu(indexPart, base, limit);
 	particao = indexPart;
+	this->nFrames = nFrames;
+
+	for(int i = 0; i < 64; i++)
+	{
+		if(i < nFrames)
+		{
+			tabelaPag[i] = indexPart + i;
+			//cout << "Atualizando Tabelas: " << tabelaPag[i] << endl;
+		}
+		else
+		{
+			tabelaPag[i] = -1;
+		}
+		
+	}
+
+	cout << "Tabela de paginas atualizada" << endl;
 
 	thisId = id;
 	id++;

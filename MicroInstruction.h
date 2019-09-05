@@ -1,7 +1,10 @@
-/*
-	Abstração de dados que representa 1(uma) instrução
+/// Rodrigo Basso
+/// Rodrigo Perozzo
 
-	os bits da instrução sao recebidos na forma de codigo objeto e 
+/*
+	Abstracao de dados que representa 1(uma) instrucao
+
+	os bits da instrucao sao recebidos na forma de codigo objeto e 
 	separados de forma mais visivel em atributos da classe;
 */
 

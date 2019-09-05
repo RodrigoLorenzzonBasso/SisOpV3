@@ -1,3 +1,6 @@
+/// Rodrigo Basso
+/// Rodrigo Perozzo
+
 #include "IO.h"
 
 IO::IO()
@@ -30,7 +33,6 @@ void IO::THREAD_IO(ProcessControl* processManager, bool* debug, bool* stop, queu
 					{
 						val_u = (unsigned int)val;
 					}
-					//TEM Q TRATAR NO FUTURO NEGATIVO
 					else
 					{
 

@@ -1,3 +1,6 @@
+/// Rodrigo Basso
+/// Rodrigo Perozzo
+
 #include "Request.h"
 
 Request::Request(int id, int flag, int param)

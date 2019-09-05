@@ -1,8 +1,11 @@
+/// Rodrigo Basso
+/// Rodrigo Perozzo
+
 /*
 	Gerente de Processos
 
-	implementa cria��o/destrui��o de processos;
-	funcionamento interno para gerenciamento dos processos atrav�s
+	implementa criacao/destruicao de processos;
+	funcionamento interno para gerenciamento dos processos atraves
 	de uma fila de processos(readyQueue);
 	ThreadTimer para escalonamento de processos;
 */
@@ -53,7 +56,7 @@ class ProcessControl
 		int nProcessos;
 		bool interrupted;
 		double timeSliceMS;
-		int tamPart;
+		int tamFrame;
 		bool* debug = nullptr;
 		bool* stop = nullptr;
 };

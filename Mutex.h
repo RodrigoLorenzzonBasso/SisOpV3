@@ -1,3 +1,6 @@
+/// Rodrigo Basso
+/// Rodrigo Perozzo
+
 #ifndef MUTEX_H
 #define MUTEX_H
 

@@ -1,3 +1,6 @@
+/// Rodrigo Basso
+/// Rodrigo Perozzo
+
 /*
 	Shell
 */
@@ -26,7 +29,7 @@ using namespace std;
 
 //defini�oes de constantes do programa
 #define TAM_MEM 1024
-#define TAM_PART 128
+#define TAM_PART 16
 //
 
 class Shell

@@ -1,3 +1,6 @@
+/// Rodrigo Basso
+/// Rodrigo Perozzo
+
 /**
 	Classe que implementa o Processador
 
@@ -16,6 +19,7 @@
 #include "Execution.h"
 #include "MemControl.h"
 #include "ProcessControl.h"
+#include "ProcessControlBlock.h"
 #include "Mutex.h"
 
 class CPU
@@ -25,7 +29,7 @@ public:
 	void setSt(StateCpu * st);
 	MicroInstruction* fetch();
 	void incPc();
-	int execInst(int *interruptParam);
+	int execInst(int *interruptParam, ProcessControlBlock * pcb);
 	void THREAD_CPU(ProcessControl * processManager, bool * debug, bool * stop, queue<int> * buffer);
 
 private:
